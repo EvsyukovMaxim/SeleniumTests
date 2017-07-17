@@ -61,11 +61,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Test1.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Page%27s\Page%27s.csproj">
+      <Project>{dc3fd087-4779-467a-83f8-64c71522d0f1}</Project>
+      <Name>Page%27s</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wraper\Wraper.csproj">
+      <Project>{492a4e6d-fcec-4817-9976-09006ca7d2dd}</Project>
+      <Name>Wraper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -5,18 +5,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using Page_s;
 
 namespace UnitTestProject1
 {
     [TestClass]
-    public class Test1
+    public class Test1 : Page
     {
         [TestMethod]
         public void TestMethod1()
         {
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = "http://uk-youla-iis/login";
+            var driver = GetBrowser("http://uk-youla-iis/login");
             var login = driver.FindElement(By.Id("username"));
             var password = driver.FindElement(By.Id("password"));
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
