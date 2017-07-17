@@ -26,21 +26,28 @@ namespace UnitTestProject1
             driver.FindElement(By.ClassName("button-login")).Click();
             var element = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
 
-            var bodyText = driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]"));
-            Assert.AreEqual("a",Convert.ToString(bodyText.Text));
+            var loggedUser = driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]"));
+            Assert.AreEqual("a",Convert.ToString(loggedUser.Text));
 
             driver.Quit();
         }
 
-        //[TestMethod]
-        //public void TestMethod2()
-        //{
-        //    IWebDriver driver = new ChromeDriver();
-        //    driver.Url = "http://uk-youla-iis/login";
-        //    driver.FindElement(By.CssSelector("a[href*='#']")).Click();
-        //    //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        //    //IWebElement myDynamicElement = wait.Until<IWebElement>(d => d.FindElement(By.Id("someDynamicElement")));
-        //    Assert.AreEqual("Территориальное деление", driver.FindElement(By.ClassName("a[href*='/territories']")));
-        //}
+        [TestMethod]
+        public void TestMethod2()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Url = "http://uk-youla-iis/login";
+
+            driver.FindElement(By.CssSelector("a[href*='#']")).Click();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var element = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
+
+            var loggedUser = driver.FindElement(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]"));
+
+            Assert.AreEqual("Евсюков Максим Владимирович", Convert.ToString(loggedUser.Text));
+
+            driver.Quit();
+        }
     }
 }
