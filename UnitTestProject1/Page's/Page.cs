@@ -13,10 +13,12 @@ namespace Page_s
     {
         public IWebDriver GetBrowser (string url)
         {
-            IWebDriver driver = new ChromeDriver();
+            var driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Url = url;
             return driver;
         }
+
+
     }
 }
