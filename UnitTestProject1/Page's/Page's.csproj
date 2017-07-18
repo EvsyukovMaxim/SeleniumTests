@@ -64,6 +64,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Page.cs" />
+    <Compile Include="Basic\PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
