@@ -21,33 +21,33 @@ namespace Page_s
             return driver;
         }
 
-        [SetUp]
-        public void Initialize()
-        {
-            driver = new ChromeDriver();
-        }
-
-        [Test]
-        public void OpenAppTest()
-        {
-            driver.Url = "http://youla.2gis.local/login";
-        }
-
-        [TearDown]
         public void EndTest()
         {
             driver.Quit();
         }
 
-        //public IWebDriver ByXPath(string path)
-        //{
-        //    driver.FindElement(By.XPath(path));
-        //    return driver;
-        //}
-        public string ByXPath(string path)
+        public IWebElement ByXPath(string path)
         {
-            var element = Convert.ToString(driver.FindElement(By.XPath(path)).Text);
+            var element = driver.FindElement(By.XPath(path));
             return element;
         }
+
+        public IWebElement ByCssSelector(string path)
+        {
+            var element = driver.FindElement(By.CssSelector(path));
+            return element;
+        }
+
+        public string TextedSelector(IWebElement selector)
+        {
+            var element = selector.Text;
+            return element;
+        }
+
+        public void AuthForm()
+        {
+            Map.LoginButton.Click();
+        }
+
     }
 }

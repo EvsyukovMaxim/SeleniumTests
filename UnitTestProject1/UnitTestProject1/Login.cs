@@ -16,7 +16,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod1()
         {
-            GetBrowser("http://youla.2gis.local/login");
+            GetBrowser("http://youla.dev:8080/login");
             var login = driver.FindElement(By.Id("username"));
             var password = driver.FindElement(By.Id("password"));
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
@@ -26,7 +26,7 @@ namespace UnitTestProject1
             driver.FindElement(By.ClassName("button-login")).Click();
             wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
             var loggedUser = ByXPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
-            Assert.AreEqual("a", loggedUser);
+            Assert.AreEqual("a", TextedSelector(loggedUser));
 
             EndTest();
         }
@@ -34,17 +34,17 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethod2()
         {
-            var driver = GetBrowser("http://uk-youla-iis/login");
+            GetBrowser("http://youla.2gis.local/login");
 
-            driver.FindElement(By.CssSelector("a[href*='#']")).Click();
+            ByCssSelector("a[href*='#']").Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
 
-            var loggedUser = driver.FindElement(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]"));
+            var loggedUser = ByXPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
 
-            Assert.AreEqual("Евсюков Максим Владимирович", Convert.ToString(loggedUser.Text));
+            Assert.AreEqual("Евсюков Максим Владимирович", TextedSelector(loggedUser));
 
-            driver.Quit();
+            EndTest();
         }
     }
 }

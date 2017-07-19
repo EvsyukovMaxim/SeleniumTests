@@ -63,7 +63,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Page.cs" />
+    <Compile Include="Basic\Page.cs" />
     <Compile Include="Basic\PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
