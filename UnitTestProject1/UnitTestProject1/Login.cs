@@ -2,37 +2,36 @@
 using System.Reflection;
 using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Internal;
-using Page_s;
+using Page_s.Login;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace UnitTestProject1
 {
     [TestClass]
-    public class Test1 : Page
+    public class Login : LoginPage
     {
         [TestMethod]
-        public void TestMethod1()
+        public void LoggingLocalA()
         {
             GetBrowser("http://youla.dev:8080/login");
-            var login = driver.FindElement(By.Id("username"));
-            var password = driver.FindElement(By.Id("password"));
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
-            login.SendKeys("local"+"\\"+"a");
-            password.SendKeys("a");
-            driver.FindElement(By.ClassName("button-login")).Click();
+            FillAuthForm("local\\a","a");
+            LoginButton();
             wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
             var loggedUser = ByXPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
-            Assert.AreEqual("a", TextedSelector(loggedUser));
 
+            Assert.AreEqual("a", TextedSelector(loggedUser));
             EndTest();
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void LoggingDomenUser()
         {
             GetBrowser("http://youla.2gis.local/login");
 

@@ -8,10 +8,24 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Internal;
 
-namespace Page_s
+namespace Page_s.Basic
 {
     public class PageBase
     {
-        public static IWebDriver driver { get; set; }
+        public IWebDriver driver { get; set; }
+
+        public IWebDriver GetBrowser(string url)
+        {
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Url = url;
+            return driver;
+        }
+        public void EndTest()
+        {
+            driver.Quit();
+        }
     }
+
+
 }

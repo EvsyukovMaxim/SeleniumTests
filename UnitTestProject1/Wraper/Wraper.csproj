@@ -69,6 +69,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Page%27s\Page%27s.csproj">
+      <Project>{DC3FD087-4779-467A-83F8-64C71522D0F1}</Project>
+      <Name>Page%27s</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
