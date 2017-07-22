@@ -16,8 +16,8 @@ namespace Page_s.Login
 
         public IWebElement PasswordTextBox => _browser.FindElement(By.Id("password"));
 
-        public IWebElement LoginButton => _browser.FindElement(By.TagName("button"));
+        public IWebElement LoginButton => _browser.FindElement(By.Id("button-login"));
 
-        public IWebElement UserNameDiv => _browser.FindElement(By.CssSelector("body > div.navbar > div > div > div > ul > li.dropdown > a > span:nth-child(2)"));
+        public IWebElement UserNameDiv => _browser.FindElement(By.CssSelector("[href*='#']"));
     }
 }

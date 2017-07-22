@@ -20,6 +20,10 @@ namespace Page_s.Login
             Map.PasswordTextBox.SendKeys(password);
         }
 
-        
+        public LoginPageValidator Validate ()
+        {
+            return new LoginPageValidator(Driver);
+        }
+
     }
 }

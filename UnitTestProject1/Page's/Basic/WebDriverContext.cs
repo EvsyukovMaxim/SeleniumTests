@@ -25,7 +25,7 @@ namespace Page_s.Basic
         }
 
 
-        public void Navigate(string relativePage)
+        public static void Navigate(string relativePage)
         {
             //var builder = new UriBuilder(EnvironmentsConfiguration.CurrentEnvironmentBaseUrl)
             //{

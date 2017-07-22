@@ -14,13 +14,13 @@ namespace UnitTestProjectYouLa
         [TestMethod]
         public void LoggingDomenUser()
         {
-            var driver =  WebDriverContext.GetInstance().Driver; //подумай - как это отсюда убрать!!!
+            BeforeScenario();
             
-
-            //public void GivenStartWith(string p0, string p1)
-            //{
-            //    PageHelper.WaitForMap(() => PageBase.Map.LoginButton);
-            //}
+            PageBase.FillAuthForm("local\\a", "a");
+            PageBase.ClickLoginButton();
+            PageHelper.WaitUntilVisible(() => PageBase.Map.UserNameDiv);
+            PageBase.Validate().UserNameIs("a");
+            AfterFeature();
         }
         protected override string PageUrl { get; }
     }

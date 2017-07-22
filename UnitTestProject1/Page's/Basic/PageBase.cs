@@ -14,10 +14,11 @@ namespace Page_s.Basic
         {
             Driver = WebDriverContext.GetInstance().Driver;
             PageFactory.InitElements(Driver, this);
+            Driver.Manage().Window.Maximize();
         }
 
 
-        public bool IsAuthorized => !Driver.FindElements(By.ClassName("login-box")).Any();
+        public bool IsAuthorized => !Driver.FindElements(By.Id("boxcontent")).Any();
 
     }
 }
