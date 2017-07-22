@@ -5,9 +5,9 @@ namespace Page_s.Login
     public class LoginPage : PageBase
     {
         private LoginMap _map;
-        public LoginMap Map => _map ?? (_map = new LoginMap(driver));
+        public LoginMap Map => _map ?? (_map = new LoginMap(Driver));
 
-        public void LoginButton()
+        public void ClickLoginButton()
         {
             Map.LoginButton.Click();
         }

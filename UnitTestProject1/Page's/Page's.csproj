@@ -63,7 +63,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Basic\EnvironmentsConfiguration.cs" />
+    <Compile Include="Basic\PageHelper.cs" />
     <Compile Include="Basic\Selectors.cs" />
+    <Compile Include="Basic\WebDriverContext.cs" />
+    <Compile Include="Basic\WebDriverTestsBase.cs" />
     <Compile Include="Desktop\DesktopPage.cs" />
     <Compile Include="Login\LoginPage.cs" />
     <Compile Include="Basic\PageBase.cs" />

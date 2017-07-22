@@ -1,27 +1,23 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using System;
+using System.Linq;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
+using Page_s.Basic;
 
 namespace Page_s.Basic
 {
-    public class PageBase //исп веб контекст
+    public class PageBase
     {
-        public static IWebDriver driver { get; set; }
+        protected readonly IWebDriver Driver;
 
-        public static IWebDriver GetBrowser(string url)
+        public PageBase()
         {
-            if (driver != null)
-                return driver;
+            Driver = WebDriverContext.GetInstance().Driver;
+            PageFactory.InitElements(Driver, this);
+        }
 
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = url;
-            return driver;
-        }
-        public void EndTest()
-        {
-            driver.Quit();
-        }
+
+        public bool IsAuthorized => !Driver.FindElements(By.ClassName("login-box")).Any();
+
     }
-
-
 }
