@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Reflection;
-using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Internal;
+using Page_s.Basic;
 using Page_s.Login;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace UnitTestProject1
+namespace UnitTestProjectYouLa
 {
     [TestClass]
     public class Login : LoginPage
@@ -24,26 +20,25 @@ namespace UnitTestProject1
             FillAuthForm("local\\a","a");
             LoginButton();
             wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
-            var loggedUser = ByXPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
-
-            Assert.AreEqual("a", TextedSelector(loggedUser));
+            var loggedUser = driver.ByXPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
+            Assert.AreEqual("a", loggedUser.Text);
             EndTest();
         }
 
         [TestMethod]
         public void LoggingDomenUser()
         {
-            GetBrowser("http://youla.2gis.local/login");
+            GetBrowser("http://uk-youla-iis/login");
 
-            ByCssSelector("a[href*='#']").Click();
+            driver.ByCssSelector("a[href*='#']").Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
 
-            var loggedUser = ByXPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
+            var loggedUser = driver.ByXPath("//html/body/div[1]/div/div/div/ul/li[4]/a/span[1]");
 
-            Assert.AreEqual("Евсюков Максим Владимирович", TextedSelector(loggedUser));
-
-            EndTest();
+            Assert.AreEqual("Евсюков Максим Владимирович", loggedUser.Text);
+            
+            //EndTest();
         }
     }
 }

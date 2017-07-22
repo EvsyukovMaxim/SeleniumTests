@@ -1,34 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Page_s.Basic
 {
-    public class Selectors : PageBase
+
+    public static class Selectors //исп веб контекст
     {
-        public IWebElement ByXPath(string path)
+        public static IWebElement ByXPath(this IWebDriver driver, string path)
         {
             var element = driver.FindElement(By.XPath(path));
             return element;
         }
 
-        public IWebElement ByCssSelector(string path)
+        public static IWebElement ByCssSelector(this IWebDriver driver, string path)
         {
             var element = driver.FindElement(By.CssSelector(path));
             return element;
         }
-
-        public string TextedSelector(IWebElement selector)
+        public static IWebElement ById(this IWebDriver driver, string path)
         {
-            var element = selector.Text;
+            var element = driver.FindElement(By.Id(path));
             return element;
         }
-
-        
-
+        public static IWebElement ByClassName(this IWebDriver driver, string path)
+        {
+            var element = driver.FindElement(By.ClassName(path));
+            return element;
+        }
     }
 
 }

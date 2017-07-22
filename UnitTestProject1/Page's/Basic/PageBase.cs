@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Internal;
 
 namespace Page_s.Basic
 {
-    public class PageBase
+    public class PageBase //исп веб контекст
     {
-        public IWebDriver driver { get; set; }
+        public static IWebDriver driver { get; set; }
 
-        public IWebDriver GetBrowser(string url)
+        public static IWebDriver GetBrowser(string url)
         {
+            if (driver != null)
+                return driver;
+
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Url = url;

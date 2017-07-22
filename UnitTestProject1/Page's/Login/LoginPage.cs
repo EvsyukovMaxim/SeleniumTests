@@ -1,19 +1,11 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Internal;
-using Page_s.Basic;
+﻿using Page_s.Basic;
 
 namespace Page_s.Login
 {
-    public class LoginPage : Selectors
+    public class LoginPage : PageBase
     {
-        public LoginMap Map => new LoginMap(driver);
+        private LoginMap _map;
+        public LoginMap Map => _map ?? (_map = new LoginMap(driver));
 
         public void LoginButton()
         {

@@ -64,6 +64,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Basic\Selectors.cs" />
+    <Compile Include="Desktop\DesktopPage.cs" />
     <Compile Include="Login\LoginPage.cs" />
     <Compile Include="Basic\PageBase.cs" />
     <Compile Include="Login\LoginMap.cs" />

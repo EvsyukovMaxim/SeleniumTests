@@ -2,68 +2,28 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium;
 
-namespace UnitTestProject1
+namespace UnitTestProjectYouLa
 {
-    /// <summary>
-    /// Summary description for UnitTest1
-    /// </summary>
     [TestClass]
-    public class Desktop
+    public class Desktop : DesktopPage
     {
-        public Desktop()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
         [TestMethod]
-        public void TestMethod1()
+        public void ChooseProject()
         {
-            //
-            // TODO: Add test logic here
-            //
+            //var logIn = new Login();
+            //logIn.LoggingDomenUser();
+            //driver.Navigate().GoToUrl("http://uk-youla-iis/calendar#/calendar");
+            GetBrowser("http://youla.dev:8080/calendar#/calendar/cycle=13");
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
+            wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("/html/body/div[1]/div/div/div/ul/li[4]/a/span[1]")));
+            ByClassName("select2-chosen").Click();
+            SelectElement dropDown = new SelectElement(ByClassName("select2-results"));
+            dropDown.SelectByText("Новосибирск");
+            EndTest();
         }
     }
 }
