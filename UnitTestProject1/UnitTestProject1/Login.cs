@@ -12,13 +12,13 @@ namespace UnitTestProjectYouLa
     public class Login : WebDriverTestsBase<LoginPage>
     {
         [TestMethod]
-        public void LoggingDomenUser()
+        public void LoggingLocalUser()
         {
             BeforeScenario();
             
             PageBase.FillAuthForm("local\\a", "a");
             PageBase.ClickLoginButton();
-            PageHelper.WaitUntilVisible(() => PageBase.Map.UserNameDiv);
+            PageHelper.WaitForMap(() => PageBase.Map.UserNameDiv);
             PageBase.Validate().UserNameIs("a");
             AfterFeature();
         }

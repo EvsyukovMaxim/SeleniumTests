@@ -25,10 +25,8 @@ namespace Page_s.Basic
         public static IWebElement WaitForMap(Func<IWebElement> mapProp, int timeout = 30)
         {
             var driver = WebDriverContext.GetInstance().Driver;
-
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
-
-            return wait.Until((webDriver) => mapProp());
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            return mapProp();
         }
 
         public static void WaitUntilVisible(Func<IWebElement> mapProp, int timeout = 30)

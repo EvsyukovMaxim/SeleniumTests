@@ -18,6 +18,6 @@ namespace Page_s.Login
 
         public IWebElement LoginButton => _browser.FindElement(By.Id("button-login"));
 
-        public IWebElement UserNameDiv => _browser.FindElement(By.CssSelector("[href*='#']"));
+        public IWebElement UserNameDiv => _browser.FindElement(By.Id("userTablet"));
     }
 }
