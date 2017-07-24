@@ -2,8 +2,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using Page_s.Basic;
-using Page_s.Login;
+using Page.Basic;
+using Page.Login;
 
 namespace UnitTestProject1
 {

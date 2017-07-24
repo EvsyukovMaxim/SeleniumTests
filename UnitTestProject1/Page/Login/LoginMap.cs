@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using Page_s.Basic;
 
-namespace Page_s.Login
+namespace Page.Login
 {
     public class LoginMap
     {

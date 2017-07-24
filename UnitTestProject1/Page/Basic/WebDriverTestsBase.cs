@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Page_s.Basic
+namespace Page.Basic
 {
     public abstract class WebDriverTestsBase<T> where T : PageBase, new()
     {

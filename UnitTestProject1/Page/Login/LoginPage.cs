@@ -1,6 +1,6 @@
-﻿using Page_s.Basic;
+﻿using Page.Basic;
 
-namespace Page_s.Login
+namespace Page.Login
 {
     public class LoginPage : PageBase
     {

@@ -1,8 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 
-
-namespace Page_s.Login
+namespace Page.Login
 {
     public class LoginPageValidator
     {
