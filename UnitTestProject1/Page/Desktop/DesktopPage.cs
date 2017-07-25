@@ -1,4 +1,6 @@
-﻿using Page.Basic;
+﻿using System.Linq;
+using OpenQA.Selenium;
+using Page.Basic;
 
 namespace Page.Desktop
 {
@@ -7,10 +9,14 @@ namespace Page.Desktop
         private DesktopMap _map;
         public DesktopMap Map => _map ?? (_map = new DesktopMap(Driver));
 
-        public void ClickDropDownProject()
+        public void ClickProjectDropDownToOpen()
         {
             Map.DropDownProjectArrow.Click();
         }
 
+        public DesktopProjectValidator ValidateProject()
+        {
+            return new DesktopProjectValidator(Driver);
+        }
     }
 }

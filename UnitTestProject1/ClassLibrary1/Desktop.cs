@@ -21,14 +21,23 @@ namespace UnitTestProject1
                 loginPage.Validate().UserNameIs("b");
             }
             WebDriverContext.Navigate("calendar#/calendar/");
-            PageBase.ClickDropDownProject();
-            var chooseProject = PageBase.Map.DropDownProjectTextBox;
+
+            PageHelper.WaitForMap(() => PageBase.Map.DropDownProjectArrow);
+            PageBase.ClickProjectDropDownToOpen();
+
+            var chooseProject = PageBase.Map.OpenedDropDownProjectTextBox;
             PageHelper.WaitUntilVisible(() => chooseProject);
-            //chooseProject.Clear();
+
+            chooseProject.Clear();
             chooseProject.Click();
-            //chooseProject.SendKeys("Москва");
-            //SendKeys.Send("{ENTER}");
-            //StringAssert.Contains(PageBase.Map.DropDownShort.Text, chooseProject.Text,"The results DIV doesn't contains the specified text.");
+            chooseProject.SendKeys("Москва");
+            SendKeys.SendWait("{ENTER}");
+
+            var desktopPage = new DesktopPage();
+            desktopPage.ValidateProject().UserProjectIs(PageBase.Map.DropDownProject.Text);
+
+            PageBase.Map.CheckBoxTask.Click();
+            PageBase.Map.TaskToSyncButton.Click();
         }
 
         protected override string PageUrl => "calendar#/calendar";

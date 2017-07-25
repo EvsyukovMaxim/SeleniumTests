@@ -61,6 +61,7 @@
     <Compile Include="Basic\WebDriverTestsBase.cs" />
     <Compile Include="Desktop\DesktopMap.cs" />
     <Compile Include="Desktop\DesktopPage.cs" />
+    <Compile Include="Desktop\DesktopProjectValidator.cs" />
     <Compile Include="Login\LoginMap.cs" />
     <Compile Include="Login\LoginPage.cs" />
     <Compile Include="Login\LoginPageValidator.cs" />

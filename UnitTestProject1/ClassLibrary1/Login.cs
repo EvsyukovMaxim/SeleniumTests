@@ -1,7 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
+﻿using NUnit.Framework;
 using Page.Basic;
 using Page.Login;
 
