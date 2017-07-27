@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading;
+using System.Windows.Forms;
 using NUnit.Framework;
 using Page.Basic;
 using Page.Desktop;
@@ -36,8 +37,17 @@ namespace UnitTestProject1
             var desktopPage = new DesktopPage();
             desktopPage.ValidateProject().UserProjectIs(PageBase.Map.DropDownProject.Text);
 
-            PageBase.Map.CheckBoxTask.Click();
+            string [] amountLeftBefore = {PageBase.Map.TerritoriesLeftAmount.Text};
+
+            PageBase.Map.CheckBoxTaskLeft.Click();
             PageBase.Map.TaskToSyncButton.Click();
+
+            PageHelper.WaitForMap(() => PageBase.Map.CheckBoxTaskRight);
+            PageBase.Map.InformationRefresher.Click();
+            Thread.Sleep(5000);
+
+            string[] amountLeftAfter = { PageBase.Map.TerritoriesLeftAmount.Text };
+            Assert.AreNotEqual(amountLeftBefore,amountLeftAfter);
         }
 
         protected override string PageUrl => "calendar#/calendar";

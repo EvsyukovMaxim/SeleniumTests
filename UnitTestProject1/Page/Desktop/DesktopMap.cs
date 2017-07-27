@@ -19,9 +19,17 @@ namespace Page.Desktop
 
         public IWebElement UserNameDiv => _browser.FindElement(By.Id("userTablet"));
 
-        public IWebElement CheckBoxTask => _browser.FindElement(By.XPath("//*[@id=\"cld-listTab\"]/table/tbody/tr/td/div/div[1]/table/tbody/tr[1]/td[1]/div/input"));
+        public IWebElement CheckBoxTaskLeft => _browser.FindElement(By.XPath("//*[@id=\"cld-listTab\"]/table/tbody/tr/td/div/div[1]/table/tbody/tr[1]/td[1]/div/input"));
 
-        public IWebElement TaskToSyncButton => _browser.FindElement(By.ClassName("fa-arrow-right"));
+        public IWebElement CheckBoxTaskRight => _browser.FindElement(By.XPath("//*[@id=\"cld-right-pane\"]/div/table[1]/tbody/tr/td/div/div/table/tbody/tr/td[1]/div/input"));
+
+        public IWebElement TaskToSyncButton => _browser.FindElement(By.Id("TaskToSyncButton"));
+
+        public IWebElement TerritoriesLeftAmount => _browser.FindElement(By.XPath("//*[@id=\"page-calendar\"]/div[2]/table/tbody/tr/td[1]/div/div[1]/div[1]/span/span[1]/span[2]"));
+
+        public IWebElement TerritoriesRightAmount => _browser.FindElement(By.XPath("//*[@id=\"cld-objects-count\"]/tbody/tr/td[1]"));
+
+        public IWebElement InformationRefresher => _browser.FindElement(By.XPath("//*[@id=\"page-calendar\"]/div[2]/table/tbody/tr/td[3]/div[1]/a/i"));
 
     }
 }
