@@ -44,7 +44,7 @@ namespace UnitTestProject1
 
             PageHelper.WaitForMap(() => PageBase.Map.CheckBoxTaskRight);
             PageBase.Map.InformationRefresher.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
 
             string[] amountLeftAfter = { PageBase.Map.TerritoriesLeftAmount.Text };
             Assert.AreNotEqual(amountLeftBefore,amountLeftAfter);
