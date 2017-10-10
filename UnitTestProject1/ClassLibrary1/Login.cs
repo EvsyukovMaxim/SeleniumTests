@@ -11,6 +11,8 @@ namespace UnitTestProject1
         [Test]
         public void LoggingLocalA()
         {
+            WebDriverContext.Navigate("login");
+            PageHelper.WaitForMap(() => PageBase.Map.LoginTextBox);
             PageBase.FillAuthForm("local\\a", "a");
             PageBase.ClickLoginButton();
             PageHelper.WaitForMap(() => PageBase.Map.UserNameDiv);
@@ -20,6 +22,8 @@ namespace UnitTestProject1
         [Test]
         public void LoggingLocalB()
         {
+            WebDriverContext.Navigate("login");
+            PageHelper.WaitForMap(() => PageBase.Map.LoginTextBox);
             PageBase.FillAuthForm("local\\b", "b");
             PageBase.ClickRememberMeButton();
             PageBase.ClickLoginButton();
