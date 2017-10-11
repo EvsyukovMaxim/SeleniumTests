@@ -57,7 +57,7 @@
     <Compile Include="Desktop.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VorwandOpening.cs" />
+    <Compile Include="VorwandOpenning.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

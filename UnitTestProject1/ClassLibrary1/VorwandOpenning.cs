@@ -12,7 +12,7 @@ namespace UnitTestProject1
         [Test]
         public void OpenVorwand()
         {
-            WebDriverContext.Navigate("vorwand#/id=12829284");
+            WebDriverContext.Navigate("vorwand#/id=12849551");
 
             PageHelper.WaitForMap(() => PageBase.Map.AppliedButton);
             PageBase.ClickAppliedButton();
@@ -24,6 +24,6 @@ namespace UnitTestProject1
             PageBase.ClickReopenApproveButton();
         }
 
-        protected override string PageUrl => "vorwand#/id=12829284";
+        protected override string PageUrl => "vorwand#/id=12849551";
     }
 }

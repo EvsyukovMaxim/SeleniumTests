@@ -38,6 +38,11 @@ namespace Page.Basic
             GetInstance().Driver.Navigate().GoToUrl(path);
         }
 
+        public static void CloseTab()
+        {
+            GetInstance().Driver.Close();
+        }
+
 
         public static WebDriverContext GetInstance()
         {
@@ -57,7 +62,7 @@ namespace Page.Basic
 
         public void Dispose()
         {            
-            ReleaseUnmanagedResources();                        
+            ReleaseUnmanagedResources();
             GC.SuppressFinalize(this);
             _singleton = null;
         }
