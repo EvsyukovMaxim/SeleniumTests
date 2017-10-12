@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using NUnit.Framework;
 using Page.Basic;
@@ -12,18 +13,21 @@ namespace UnitTestProject1
         [Test]
         public void OpenVorwand()
         {
-            for (int  i =1; i < 10; i++)
+            for (int  i =1; i < 10000; i++)
                 {
-                    WebDriverContext.Navigate("vorwand#/id=12849551");
+                    Random n = new Random();
+                    int nInt = n.Next(10849573, 12849573);
+                    WebDriverContext.Navigate("vorwand#/id="+nInt);
 
-                    PageHelper.WaitForMap(() => PageBase.Map.AppliedButton);
-                    PageBase.ClickAppliedButton();
+                    //PageHelper.WaitForMap(() => PageBase.Map.AppliedButton);
+                    //PageBase.ClickAppliedButton();
 
-                    PageHelper.WaitForMap(() => PageBase.Map.ReopenButton);
-                    PageBase.ClickReopenButton();
+                    //PageHelper.WaitForMap(() => PageBase.Map.ReopenButton);
+                    //PageBase.ClickReopenButton();
 
-                    PageHelper.WaitForMap(() => PageBase.Map.ReopenApproveButton);
-                    PageBase.ClickReopenApproveButton();
+                    //PageHelper.WaitForMap(() => PageBase.Map.ReopenApproveButton);
+                    //PageBase.ClickReopenApproveButton();
+                    Thread.Sleep(3000);
                 }
          }
 
