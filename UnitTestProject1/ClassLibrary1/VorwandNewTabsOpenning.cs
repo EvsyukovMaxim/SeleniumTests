@@ -10,10 +10,10 @@ using Page.Vorwands;
 namespace UnitTestProject1
 {
     [TestFixture]
-    public class VorwandOpenning : WebDriverTestsBase<VowandsPage>
+    public class VorwandNewTabsOpenning : WebDriverTestsBase<VowandsPage>
     {
         [Test]
-        public void OpenVorwand()
+        public void OpenNewTabVorwand()
         {
             for (int i = 1; i < 3; i++)
             {
