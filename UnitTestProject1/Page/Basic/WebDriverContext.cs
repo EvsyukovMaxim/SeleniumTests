@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
@@ -38,11 +39,17 @@ namespace Page.Basic
             GetInstance().Driver.Navigate().GoToUrl(path);
         }
 
+        public static void OpenNewTab()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)GetInstance().Driver;
+            js.ExecuteScript("window.open();");
+            GetInstance().Driver.SwitchTo().Window(GetInstance().Driver.WindowHandles.Last());
+        }
+
         public static void CloseTab()
         {
             GetInstance().Driver.Close();
         }
-
 
         public static WebDriverContext GetInstance()
         {
@@ -53,7 +60,7 @@ namespace Page.Basic
         {
             if (Driver != null)
             {
-                Driver.Close();
+                Driver.Quit();
                 Driver.Dispose();
             }
 

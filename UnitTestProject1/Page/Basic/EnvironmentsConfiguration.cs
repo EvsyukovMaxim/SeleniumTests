@@ -2,6 +2,6 @@
 {
     public class EnvironmentsConfiguration
     {
-        public static string CurrentEnvironmentBaseUrl => "http://youla.2gis.local";
+        public static string CurrentEnvironmentBaseUrl => "http://youla.dev";
     }
 }
