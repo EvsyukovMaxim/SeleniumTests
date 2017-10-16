@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Threading;
-using System.Windows.Forms;
+using System.Collections;
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using Page.Basic;
 using Page.Vorwands;
 
-namespace UnitTestProject1
+namespace ClassLibrary1
 {
     [TestFixture]
     public class VorwandNewTabsOpenning : WebDriverTestsBase<VowandsPage>
@@ -15,25 +14,35 @@ namespace UnitTestProject1
         [Test]
         public void OpenNewTabVorwand()
         {
+            Random n = new Random();
+            int nInt = n.Next(10849573, 12849573);
+            for (int e = 1; e < 10; e++)
+            {
+                WebDriverContext.OpenNewTab();
+            }
+
             for (int i = 1; i < 3; i++)
             {
-                Random n = new Random();
-                int nInt = n.Next(10849573, 12849573);
-                for (int t = 1; t < 11; t++)
-                {
-                    WebDriverContext.OpenNewTab();
-                    WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                }
-                //WebDriverContext.OpenNewTab();
-                //PageHelper.WaitForMap(() => PageBase.Map.AppliedButton);
-                //PageBase.ClickAppliedButton();
-
-                //PageHelper.WaitForMap(() => PageBase.Map.ReopenButton);
-                //PageBase.ClickReopenButton();
-
-                //PageHelper.WaitForMap(() => PageBase.Map.ReopenApproveButton);
-                //PageBase.ClickReopenApproveButton();
-                WebDriverContext.CloseTab();
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[0]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[1]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[2]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[3]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[4]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[5]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[6]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[7]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[8]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[9]);
+                WebDriverContext.Navigate("vorwand#/id=" + nInt);
             }
          }
 

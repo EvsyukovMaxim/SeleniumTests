@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Threading;
-using System.Windows.Forms;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using Page.Basic;
 using Page.Vorwands;
 
-namespace UnitTestProject1
+namespace ClassLibrary1
 {
     [TestFixture]
     public class VorwandJustOpenning : WebDriverTestsBase<VowandsPage>

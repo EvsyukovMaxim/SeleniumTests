@@ -38,17 +38,11 @@ namespace Page.Basic
 
             GetInstance().Driver.Navigate().GoToUrl(path);
         }
-
         public static void OpenNewTab()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)GetInstance().Driver;
             js.ExecuteScript("window.open();");
-            GetInstance().Driver.SwitchTo().Window(GetInstance().Driver.WindowHandles.Last());
-        }
-
-        public static void CloseTab()
-        {
-            GetInstance().Driver.Close();
+            GetInstance().Driver.SwitchTo().Window(GetInstance().Driver.WindowHandles.First());
         }
 
         public static WebDriverContext GetInstance()
