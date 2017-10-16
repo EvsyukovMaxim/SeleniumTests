@@ -21,11 +21,11 @@ namespace ClassLibrary1
 
             for (int i = 1; i < 10; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int tabNumber = 0; tabNumber < 10; tabNumber++)
                 {
                     Random n = new Random();
                     int nInt = n.Next(10849573, 12849573);
-                    WebDriverContext.SwitchTab(j);
+                    WebDriverContext.SwitchTab(tabNumber);
                     WebDriverContext.Navigate("vorwand#/id=" + nInt);
                 }
             }
