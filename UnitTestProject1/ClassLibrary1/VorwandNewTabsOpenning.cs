@@ -14,35 +14,20 @@ namespace ClassLibrary1
         [Test]
         public void OpenNewTabVorwand()
         {
-            Random n = new Random();
-            int nInt = n.Next(10849573, 12849573);
             for (int e = 1; e < 10; e++)
             {
                 WebDriverContext.OpenNewTab();
             }
 
-            for (int i = 1; i < 3; i++)
+            for (int i = 1; i < 10; i++)
             {
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[0]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[1]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[2]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[3]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[4]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[5]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[6]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[7]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[8]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
-                WebDriverContext.GetInstance().Driver.SwitchTo().Window(WebDriverContext.GetInstance().Driver.WindowHandles[9]);
-                WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                for (int j = 0; j < 10; j++)
+                {
+                    Random n = new Random();
+                    int nInt = n.Next(10849573, 12849573);
+                    WebDriverContext.SwitchTab(j);
+                    WebDriverContext.Navigate("vorwand#/id=" + nInt);
+                }
             }
          }
 

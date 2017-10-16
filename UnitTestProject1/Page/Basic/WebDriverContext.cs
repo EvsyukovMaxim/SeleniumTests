@@ -42,8 +42,13 @@ namespace Page.Basic
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)GetInstance().Driver;
             js.ExecuteScript("window.open();");
-            GetInstance().Driver.SwitchTo().Window(GetInstance().Driver.WindowHandles.First());
         }
+
+        public static void SwitchTab(int index)
+        {
+            GetInstance().Driver.SwitchTo().Window(GetInstance().Driver.WindowHandles[index]);
+        }
+
 
         public static WebDriverContext GetInstance()
         {
