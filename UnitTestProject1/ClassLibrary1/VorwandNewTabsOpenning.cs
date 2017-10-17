@@ -19,7 +19,7 @@ namespace ClassLibrary1
                 WebDriverContext.OpenNewTab();
             }
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 350; i++)
             {
                 for (int tabNumber = 0; tabNumber < 10; tabNumber++)
                 {
