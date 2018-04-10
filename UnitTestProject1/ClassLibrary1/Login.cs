@@ -2,7 +2,7 @@
 using Page.Basic;
 using Page.Login;
 
-namespace UnitTestProject1
+namespace ClassLibrary1
 {
     [TestFixture]
     public class Login : WebDriverTestsBase<LoginPage>

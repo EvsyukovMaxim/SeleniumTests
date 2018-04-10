@@ -5,7 +5,7 @@ using Page.Basic;
 using Page.Desktop;
 using Page.Login;
 
-namespace UnitTestProject1
+namespace ClassLibrary1
 {
     [TestFixture]
     public class Desktop : WebDriverTestsBase<DesktopPage>
