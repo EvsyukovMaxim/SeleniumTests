@@ -11,7 +11,8 @@ namespace ClassLibrary1
         [Test]
         public void LoggingLocalA()
         {
-            WebDriverContext.Navigate("login");
+            //WebDriverContext.Navigate("login");
+            WebDriverContext.GetInstance().Driver.Navigate().GoToUrl("http://youla-dev/login");
             PageHelper.WaitForMap(() => PageBase.Map.LoginTextBox);
             PageBase.FillAuthForm("local\\a", "a");
             PageBase.ClickLoginButton();
